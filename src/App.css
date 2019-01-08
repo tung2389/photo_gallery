@@ -1,0 +1,158 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 40vmin;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes float-up {
+  0% {
+      opacity: 0;
+      top: 4rem;
+  }
+  100% {
+      opacity: 1;
+      top: 0;
+  }
+}
+
+.float-up {
+  opacity: 0;
+  position: relative;
+  animation-name: float-up;
+  animation-duration: 0.45s;
+  animation-fill-mode: forwards;
+}
+
+.awesome_trick{
+  max-width: 200px;
+  max-height: 200px;
+  margin-left: 10px;
+  object-fit: contain;
+}
+
+/*ripple effect*/
+.choose_file{
+  overflow: hidden;
+  text-align: center;
+  position: fixed;
+  top: 10px;
+  display: inline-block; /*The label is an inline element, meaning it is only as big as it needs to be.*/
+  background-color: #a6a6a6;
+  color: white;
+  height: 30px;
+  width: 70px;
+  transition: 0.8s;
+}
+.choose_file:hover{
+  cursor: pointer;
+  background-color: #b3b3b3;
+}
+.choose_file::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 5px;
+  height: 5px;
+  background: rgba(255, 255, 255, .5);;
+  opacity: 0;
+  border-radius: 100%;
+  transform: scale(1, 1) translate(-50%);
+  transform-origin: 50% 50%;
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(0, 0);
+    opacity: 1;
+  }
+  20% {
+    transform: scale(25, 25);
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(40, 40);
+  }
+}
+
+.choose_file:not(:active)::after {
+  animation: ripple 0.5s ease-out;
+}
+
+.passing {
+  animation: passing_385 2s linear infinite;
+  transform-origin: 50% 50%;
+}
+
+@keyframes passing_385 {
+  0% { transform:translateX(-50%); opacity:0 }
+  50% { transform:translateX(0%); opacity:1 }
+  100% { transform:translateX(50%); opacity:0 }
+}
+
+.upload{
+  position: fixed;
+  height: 30px;
+  width: 140px;
+  top: 60px;
+  background-color: white;
+  border-color: blue blue blue blue;
+}
+
+.upload:hover{
+  background-color: blue;
+  color: white;
+}
+
+.upload_image{
+  top:60px;
+  left: 100px;
+  position: fixed;
+  width: 30px;
+  height: 30px;
+}
+
+.images{
+  position: fixed;
+  top: 100px;
+  height: 84%;
+  overflow: auto;
+}
+
+.file_list{
+  position: fixed;
+  overflow: auto;
+  left: 150px;
+  height: 80px;
+}
+
+.not_display{
+  display: none;
+}
